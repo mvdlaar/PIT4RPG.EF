@@ -84,6 +84,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BattleScherm.aspx" />
     <Content Include="DB\PIT4RPG.mdf" />
     <Content Include="DB\PIT4RPG_log.ldf">
       <DependentUpon>PIT4RPG.mdf</DependentUpon>
@@ -105,15 +106,24 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BattleScherm.aspx.cs">
+      <DependentUpon>BattleScherm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BattleScherm.aspx.designer.cs">
+      <DependentUpon>BattleScherm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Boogschutter.cs">
       <DependentUpon>PIT4RPGModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CC\CCVechten.cs" />
     <Compile Include="Character.cs">
       <DependentUpon>PIT4RPGModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Character.cs" />
     <Compile Include="PIT4RPGModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,7 +146,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
