@@ -4,8 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e8858c55585342e789e038b3b96c469b" Name="Diagram1" ZoomLevel="172" >
+      <Diagram DiagramId="e8858c55585342e789e038b3b96c469b" Name="Diagram1" ZoomLevel="129" >
         <EntityTypeShape EntityType="PIT4RPGModel.Character" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="PIT4RPGModel.Uitrusting" Width="1.5" PointX="2.625" PointY="0.5" />
+        <AssociationConnector Association="PIT4RPGModel.CharacterUitrusting" />
+        <EntityTypeShape EntityType="PIT4RPGModel.Boogschutter" Width="1.5" PointX="0.5" PointY="3" />
+        <InheritanceConnector EntityType="PIT4RPGModel.Boogschutter" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
