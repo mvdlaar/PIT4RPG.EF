@@ -83,6 +83,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DB\PIT4RPG.mdf" />
+    <Content Include="DB\PIT4RPG_log.ldf">
+      <DependentUpon>PIT4RPG.mdf</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="PIT4RPGModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
