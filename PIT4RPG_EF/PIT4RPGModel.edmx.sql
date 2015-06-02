@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/02/2015 10:27:57
+-- Date Created: 06/02/2015 12:35:49
 -- Generated from EDMX file: D:\Projects\PIT4RPG_EF\PIT4RPG_EF\PIT4RPGModel.edmx
 -- --------------------------------------------------
 
@@ -17,11 +17,26 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_CharacterUitrusting]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[UitrustingSet] DROP CONSTRAINT [FK_CharacterUitrusting];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Boogschutter_inherits_Character]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[CharacterSet_Boogschutter] DROP CONSTRAINT [FK_Boogschutter_inherits_Character];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[CharacterSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CharacterSet];
+GO
+IF OBJECT_ID(N'[dbo].[UitrustingSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UitrustingSet];
+GO
+IF OBJECT_ID(N'[dbo].[CharacterSet_Boogschutter]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CharacterSet_Boogschutter];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables

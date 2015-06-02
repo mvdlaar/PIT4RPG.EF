@@ -4,16 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PIT4RPGModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="PIT4RPGModelStoreContainer">
-    <EntitySet Name="CharacterSet" EntityType="PIT4RPGModel.Store.CharacterSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UitrustingSet" EntityType="PIT4RPGModel.Store.UitrustingSet" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CharacterSet_Boogschutter" EntityType="PIT4RPGModel.Store.CharacterSet_Boogschutter" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="CharacterUitrusting" Association="PIT4RPGModel.Store.CharacterUitrusting">
+    <Schema Namespace="PIT4RPG.BU.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="PIT4RPGBUStoreContainer">
+    <EntitySet Name="CharacterSet" EntityType="PIT4RPG.BU.Store.CharacterSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UitrustingSet" EntityType="PIT4RPG.BU.Store.UitrustingSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CharacterSet_Boogschutter" EntityType="PIT4RPG.BU.Store.CharacterSet_Boogschutter" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CharacterUitrusting" Association="PIT4RPG.BU.Store.CharacterUitrusting">
       <End Role="Character" EntitySet="CharacterSet" />
       <End Role="Uitrusting" EntitySet="UitrustingSet" />
     </AssociationSet>
-    <AssociationSet Name="FK_Boogschutter_inherits_Character" Association="PIT4RPGModel.Store.FK_Boogschutter_inherits_Character">
+    <AssociationSet Name="FK_Boogschutter_inherits_Character" Association="PIT4RPG.BU.Store.FK_Boogschutter_inherits_Character">
       <End Role="Character" EntitySet="CharacterSet" />
       <End Role="Boogschutter" EntitySet="CharacterSet_Boogschutter" />
     </AssociationSet>
@@ -43,8 +43,8 @@
     <Property Name="Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="CharacterUitrusting">
-    <End Role="Character" Type="PIT4RPGModel.Store.CharacterSet" Multiplicity="0..1" />
-    <End Role="Uitrusting" Type="PIT4RPGModel.Store.UitrustingSet" Multiplicity="*" />
+    <End Role="Character" Type="PIT4RPG.BU.Store.CharacterSet" Multiplicity="0..1" />
+    <End Role="Uitrusting" Type="PIT4RPG.BU.Store.UitrustingSet" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Character">
         <PropertyRef Name="Id" />
@@ -55,10 +55,10 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Boogschutter_inherits_Character">
-    <End Role="Character" Type="PIT4RPGModel.Store.CharacterSet" Multiplicity="1">
+    <End Role="Character" Type="PIT4RPG.BU.Store.CharacterSet" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Role="Boogschutter" Type="PIT4RPGModel.Store.CharacterSet_Boogschutter" Multiplicity="0..1" />
+    <End Role="Boogschutter" Type="PIT4RPG.BU.Store.CharacterSet_Boogschutter" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Character">
         <PropertyRef Name="Id" />
@@ -110,7 +110,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="PIT4RPGModelStoreContainer" CdmEntityContainer="PIT4RPGModelContainer">
+  <EntityContainerMapping StorageEntityContainer="PIT4RPGBUStoreContainer" CdmEntityContainer="PIT4RPGModelContainer">
     <EntitySetMapping Name="CharacterSet">
       <EntityTypeMapping TypeName="IsTypeOf(PIT4RPG.BU.Character)">
         <MappingFragment StoreEntitySet="CharacterSet">
