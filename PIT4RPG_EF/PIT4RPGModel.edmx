@@ -71,11 +71,11 @@
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PIT4RPGModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PIT4RPG.BU" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="PIT4RPGModelContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CharacterSet" EntityType="PIT4RPGModel.Character" />
-          <EntitySet Name="UitrustingSet" EntityType="PIT4RPGModel.Uitrusting" />
-          <AssociationSet Name="CharacterUitrusting" Association="PIT4RPGModel.CharacterUitrusting">
+          <EntitySet Name="CharacterSet" EntityType="PIT4RPG.BU.Character" />
+          <EntitySet Name="UitrustingSet" EntityType="PIT4RPG.BU.Uitrusting" />
+          <AssociationSet Name="CharacterUitrusting" Association="PIT4RPG.BU.CharacterUitrusting">
             <End Role="Character" EntitySet="CharacterSet" />
             <End Role="Uitrusting" EntitySet="UitrustingSet" />
           </AssociationSet>
@@ -89,7 +89,7 @@
           <Property Name="Levens" Type="Int32" Nullable="false" />
           <Property Name="Aanval" Type="Int32" Nullable="false" />
           <Property Name="Verdediging" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Uitrustingen" Relationship="PIT4RPGModel.CharacterUitrusting" FromRole="Character" ToRole="Uitrusting" />
+          <NavigationProperty Name="Uitrustingen" Relationship="PIT4RPG.BU.CharacterUitrusting" FromRole="Character" ToRole="Uitrusting" />
         </EntityType>
         <EntityType Name="Uitrusting">
           <Key>
@@ -97,13 +97,13 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Naam" Type="String" Nullable="false" />
-          <NavigationProperty Name="Character" Relationship="PIT4RPGModel.CharacterUitrusting" FromRole="Uitrusting" ToRole="Character" />
+          <NavigationProperty Name="Character" Relationship="PIT4RPG.BU.CharacterUitrusting" FromRole="Uitrusting" ToRole="Character" />
         </EntityType>
         <Association Name="CharacterUitrusting">
-          <End Type="PIT4RPGModel.Character" Role="Character" Multiplicity="0..1" />
-          <End Type="PIT4RPGModel.Uitrusting" Role="Uitrusting" Multiplicity="*" />
+          <End Type="PIT4RPG.BU.Character" Role="Character" Multiplicity="0..1" />
+          <End Type="PIT4RPG.BU.Uitrusting" Role="Uitrusting" Multiplicity="*" />
         </Association>
-        <EntityType Name="Boogschutter" BaseType="PIT4RPGModel.Character">
+        <EntityType Name="Boogschutter" BaseType="PIT4RPG.BU.Character">
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -112,7 +112,7 @@
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="PIT4RPGModelStoreContainer" CdmEntityContainer="PIT4RPGModelContainer">
     <EntitySetMapping Name="CharacterSet">
-      <EntityTypeMapping TypeName="IsTypeOf(PIT4RPGModel.Character)">
+      <EntityTypeMapping TypeName="IsTypeOf(PIT4RPG.BU.Character)">
         <MappingFragment StoreEntitySet="CharacterSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Naam" ColumnName="Naam" />
@@ -121,21 +121,21 @@
           <ScalarProperty Name="Verdediging" ColumnName="Verdediging" />
         </MappingFragment>
       </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(PIT4RPGModel.Boogschutter)">
+      <EntityTypeMapping TypeName="IsTypeOf(PIT4RPG.BU.Boogschutter)">
         <MappingFragment StoreEntitySet="CharacterSet_Boogschutter">
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UitrustingSet">
-      <EntityTypeMapping TypeName="IsTypeOf(PIT4RPGModel.Uitrusting)">
+      <EntityTypeMapping TypeName="IsTypeOf(PIT4RPG.BU.Uitrusting)">
         <MappingFragment StoreEntitySet="UitrustingSet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Naam" ColumnName="Naam" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="CharacterUitrusting" TypeName="PIT4RPGModel.CharacterUitrusting" StoreEntitySet="UitrustingSet">
+    <AssociationSetMapping Name="CharacterUitrusting" TypeName="PIT4RPG.BU.CharacterUitrusting" StoreEntitySet="UitrustingSet">
       <EndProperty Name="Character">
         <ScalarProperty Name="Id" ColumnName="Character_Id" />
       </EndProperty>

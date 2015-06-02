@@ -70,6 +70,7 @@
     <EntityDeploy Include="PIT4RPGModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PIT4RPGModel.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>PIT4RPG.BU</CustomToolNamespace>
     </EntityDeploy>
     <Content Include="PIT4RPGModel.edmx.diagram">
       <DependentUpon>PIT4RPGModel.edmx</DependentUpon>
@@ -92,12 +93,14 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PIT4RPGModel.Context.cs</LastGenOutput>
       <DependentUpon>PIT4RPGModel.edmx</DependentUpon>
+      <CustomToolNamespace>PIT4RPG.BU</CustomToolNamespace>
     </Content>
     <Content Include="PIT4RPGModel.edmx.sql" />
     <Content Include="PIT4RPGModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PIT4RPGModel.cs</LastGenOutput>
       <DependentUpon>PIT4RPGModel.edmx</DependentUpon>
+      <CustomToolNamespace>PIT4RPG.BU</CustomToolNamespace>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PIT4RPG_EF
+namespace PIT4RPG.BU
 {
     using System;
     using System.Data.Entity;
